@@ -7,8 +7,17 @@
 //
 
 #import "CustomCollectionViewCell.h"
+#import "CacheImageManager.h"
 
 @implementation CustomCollectionViewCell
 
+-(void)setPerson:(Person *)person
+{
+    [self.firstNameLabel setText:person.firstname];
+    [self.lastNameLabel setText:person.lastname];
+    [CacheImageManager getImageFromUrlPath:[person.url absoluteString] withCompletion:^(UIImage *image) {
+        [self.photoImageView setImage:image];
+    }];
+}
 
 @end

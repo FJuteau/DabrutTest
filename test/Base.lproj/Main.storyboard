@@ -57,8 +57,8 @@
                                     <constraint firstItem="Xme-IU-ttd" firstAttribute="top" secondItem="bL1-bu-QbW" secondAttribute="bottom" id="z4w-hd-rOy"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="firstName" destination="Xme-IU-ttd" id="Z5a-sz-Qcm"/>
-                                    <outlet property="lastName" destination="G5W-Fw-W9N" id="yLo-mc-DoV"/>
+                                    <outlet property="firstNameLabel" destination="Xme-IU-ttd" id="bz2-Th-cxs"/>
+                                    <outlet property="lastNameLabel" destination="G5W-Fw-W9N" id="CLT-Ih-Pj1"/>
                                     <outlet property="photoImageView" destination="bL1-bu-QbW" id="9fA-zd-O4k"/>
                                 </connections>
                             </collectionViewCell>
@@ -72,7 +72,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXj-Am-9Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-882" y="143"/>
+            <point key="canvasLocation" x="-1186" y="-569"/>
         </scene>
         <!--Animation-->
         <scene sceneID="TXx-S8-u4m">
@@ -98,14 +98,22 @@
                                     <action selector="handleAnimate:" destination="N3y-SB-8YA" eventType="touchUpInside" id="aFS-Gq-pZj"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pE-U8-CSi">
+                                <rect key="frame" x="336" y="510" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="oEB-uv-yJK" secondAttribute="centerX" id="Vim-3W-v49"/>
+                            <constraint firstItem="2gv-NA-WOX" firstAttribute="top" secondItem="9pE-U8-CSi" secondAttribute="bottom" constant="10" id="eqm-LU-jdm"/>
+                            <constraint firstItem="9pE-U8-CSi" firstAttribute="leading" secondItem="oEB-uv-yJK" secondAttribute="trailing" constant="7.5" id="yaQ-4x-DXh"/>
                             <constraint firstItem="2gv-NA-WOX" firstAttribute="top" secondItem="oEB-uv-yJK" secondAttribute="bottom" constant="10" id="yoa-kG-24v"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Animation" id="R8W-6T-28e"/>
+                    <connections>
+                        <outlet property="animationTypeSwitch" destination="9pE-U8-CSi" id="4Zx-pK-ZaA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8n-7H-8Qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,19 +151,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhh-7h-yjE">
-                                <rect key="frame" x="-67" y="84" width="74" height="41"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-jG-90o">
                                 <rect key="frame" x="281.5" y="281.5" width="37" height="37"/>
                                 <color key="color" red="0.080517345810000002" green="0.7330639712" blue="0.97577335860000003" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhh-7h-yjE">
+                                <rect key="frame" x="16" y="20" width="568" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rof-on-KF8" id="hhc-au-Qdj"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZHu-ia-QfZ" firstAttribute="top" secondItem="Qhh-7h-yjE" secondAttribute="bottom" id="CXi-Tm-XQL"/>
+                            <constraint firstItem="Qhh-7h-yjE" firstAttribute="leading" secondItem="rof-on-KF8" secondAttribute="leadingMargin" id="Kis-Wt-rjS"/>
                             <constraint firstAttribute="centerY" secondItem="pW4-jG-90o" secondAttribute="centerY" id="Nqp-c4-MSp"/>
                             <constraint firstAttribute="centerX" secondItem="pW4-jG-90o" secondAttribute="centerX" id="g4R-vy-hre"/>
+                            <constraint firstItem="Qhh-7h-yjE" firstAttribute="top" secondItem="8nH-4Z-hRl" secondAttribute="bottom" id="suf-BD-Zd0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qhh-7h-yjE" secondAttribute="trailing" id="yHN-sy-PQy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Web" id="JVi-rB-0ue"/>

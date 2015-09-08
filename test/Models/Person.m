@@ -10,23 +10,17 @@
 
 @implementation Person
 
--(Person *)initPersonWithFirstName:(NSString *)_firstName
-                      andLastName:(NSString *)_lastName
+- (instancetype)initWithFirstName:(NSString *)firstName
+                      andLastName:(NSString *)lastName
+                          fromUrl:(NSURL *)url
 {
-    self.firstname = _firstName;
-    self.lastname = _lastName;
+    if (self = [super init])
+    {
+        _firstname = firstName;
+        _lastname = lastName;
+        _url = url;
+    }
     return self;
 }
 
--(void)setImageFromUrl:(NSString *)_url
-{
-    NSURL *imageUrl = [NSURL URLWithString:_url];
-    NSData *data = [NSData dataWithContentsOfURL:imageUrl];
-    
-    if (data) // datas are OK
-    {
-        UIImage *image = [UIImage imageWithData:data];
-        [self setPhoto:image];
-    }
-}
 @end

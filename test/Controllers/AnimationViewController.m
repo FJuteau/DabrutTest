@@ -7,6 +7,7 @@
 //
 
 #import "AnimationViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AnimationViewController ()
 
@@ -15,12 +16,16 @@
 @property (nonatomic) CGRect startingPoint;
 @property (nonatomic) CGRect landingPoint;
 
+@property (weak, nonatomic) IBOutlet UISwitch *animationTypeSwitch;
+
 @end
 
 @implementation AnimationViewController
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [self setStartingPoint:CGRectMake(-200, -200, 200, 200)];
     [self setLandingPoint:CGRectMake(100, 200, 200, 200)];
     
@@ -28,24 +33,33 @@
     [self.animatedView setFrame:self.startingPoint];
     [self.animatedView setBackgroundColor:[UIColor greenColor]];
     
-    [self.view addSubview:_animatedView];
+    [self.view addSubview:self.animatedView];
 }
 
 #pragma mark - Outlet handlers
 
 - (IBAction)handleAnimate:(id)sender
 {
-    [UIView animateWithDuration:3.0 animations:^
+    if (self.animationTypeSwitch.on) // UIView block based api
     {
-        if (CGRectEqualToRect(self.animatedView.frame,self.startingPoint))
-        {
-            [self.animatedView setFrame:self.landingPoint];
-        }
-        else
-        {
-            [self.animatedView setFrame:self.startingPoint];
-        }
-    }];
+        [UIView animateWithDuration:3.0 delay:0.0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:0 animations:^{
+            if (CGRectEqualToRect(self.animatedView.frame,self.startingPoint))
+            {
+                [self.animatedView setFrame:self.landingPoint];
+            }
+            else
+            {
+                [self.animatedView setFrame:self.startingPoint];
+            }
+        } completion:^(BOOL finished) {
+            NSLog(@"OK");
+        }];
+    }
+    else // Not implemented yet : CAAnimation
+    {
+        
+    }
+    
 }
 
 

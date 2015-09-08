@@ -12,6 +12,9 @@
 		4223A7001B989BB2000FC3D7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A6F71B989BB2000FC3D7 /* WebViewController.m */; };
 		4223A7011B989BB2000FC3D7 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A6FA1B989BB2000FC3D7 /* Person.m */; };
 		4223A7021B989BB2000FC3D7 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A6FD1B989BB2000FC3D7 /* CustomCollectionViewCell.m */; };
+		4223A7141B99A9C1000FC3D7 /* CacheImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A70F1B99A9C1000FC3D7 /* CacheImageManager.m */; };
+		4223A7151B99A9C1000FC3D7 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A7111B99A9C1000FC3D7 /* NetworkManager.m */; };
+		4223A7161B99A9C1000FC3D7 /* PersonDataSourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4223A7131B99A9C1000FC3D7 /* PersonDataSourceManager.m */; };
 		42DE37471ACB336500290225 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DE37461ACB336500290225 /* main.m */; };
 		42DE374A1ACB336500290225 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DE37491ACB336500290225 /* AppDelegate.m */; };
 		42DE374D1ACB336500290225 /* test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42DE374B1ACB336500290225 /* test.xcdatamodeld */; };
@@ -42,6 +45,12 @@
 		4223A6FA1B989BB2000FC3D7 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		4223A6FC1B989BB2000FC3D7 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		4223A6FD1B989BB2000FC3D7 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		4223A70E1B99A9C1000FC3D7 /* CacheImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheImageManager.h; sourceTree = "<group>"; };
+		4223A70F1B99A9C1000FC3D7 /* CacheImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheImageManager.m; sourceTree = "<group>"; };
+		4223A7101B99A9C1000FC3D7 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		4223A7111B99A9C1000FC3D7 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		4223A7121B99A9C1000FC3D7 /* PersonDataSourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDataSourceManager.h; sourceTree = "<group>"; };
+		4223A7131B99A9C1000FC3D7 /* PersonDataSourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDataSourceManager.m; sourceTree = "<group>"; };
 		42DE37411ACB336500290225 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DE37451ACB336500290225 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42DE37461ACB336500290225 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +99,7 @@
 		4223A6F81B989BB2000FC3D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4223A70D1B99A9C1000FC3D7 /* Managers */,
 				4223A6F91B989BB2000FC3D7 /* Person.h */,
 				4223A6FA1B989BB2000FC3D7 /* Person.m */,
 			);
@@ -100,11 +110,24 @@
 			isa = PBXGroup;
 			children = (
 				4223A6FC1B989BB2000FC3D7 /* CustomCollectionViewCell.h */,
+				4223A6FD1B989BB2000FC3D7 /* CustomCollectionViewCell.m */,
 				42DE37511ACB336500290225 /* Main.storyboard */,
 				42DE37561ACB336500290225 /* LaunchScreen.xib */,
-				4223A6FD1B989BB2000FC3D7 /* CustomCollectionViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4223A70D1B99A9C1000FC3D7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4223A70E1B99A9C1000FC3D7 /* CacheImageManager.h */,
+				4223A70F1B99A9C1000FC3D7 /* CacheImageManager.m */,
+				4223A7101B99A9C1000FC3D7 /* NetworkManager.h */,
+				4223A7111B99A9C1000FC3D7 /* NetworkManager.m */,
+				4223A7121B99A9C1000FC3D7 /* PersonDataSourceManager.h */,
+				4223A7131B99A9C1000FC3D7 /* PersonDataSourceManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		42DE37381ACB336500290225 = {
@@ -266,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4223A7161B99A9C1000FC3D7 /* PersonDataSourceManager.m in Sources */,
 				4223A6FE1B989BB2000FC3D7 /* AnimationViewController.m in Sources */,
 				42DE374A1ACB336500290225 /* AppDelegate.m in Sources */,
 				4223A7001B989BB2000FC3D7 /* WebViewController.m in Sources */,
@@ -274,6 +298,8 @@
 				4223A7011B989BB2000FC3D7 /* Person.m in Sources */,
 				4223A6FF1B989BB2000FC3D7 /* CustomCollectionViewController.m in Sources */,
 				42DE374D1ACB336500290225 /* test.xcdatamodeld in Sources */,
+				4223A7151B99A9C1000FC3D7 /* NetworkManager.m in Sources */,
+				4223A7141B99A9C1000FC3D7 /* CacheImageManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

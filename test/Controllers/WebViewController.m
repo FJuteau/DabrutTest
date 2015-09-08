@@ -16,39 +16,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
     NSURL *url = [NSURL URLWithString:@"http://www.mac4ever.com/actu"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:req];
-    [self.webView setDelegate:self];
+    [self.view bringSubviewToFront:self.spinner];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 #pragma mark - WebView delegate methods
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [self.spinner startAnimating];
+    if (!self.spinner.isAnimating)
+    {
+        [self.spinner startAnimating];
+    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [self.spinner stopAnimating];
+    if (self.spinner.isAnimating)
+    {
+        [self.spinner stopAnimating];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

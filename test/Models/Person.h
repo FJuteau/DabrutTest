@@ -12,14 +12,13 @@
 
 @property (nonatomic, strong) NSString *firstname;
 @property (nonatomic, strong) NSString *lastname;
-@property (nonatomic, strong) UIImage *photo;
+@property (nonatomic, strong) NSURL *url;
 
 
--(Person *)initPersonWithFirstName:(NSString *)_firstName
-                       andLastName:(NSString *)_lastName;
+-(instancetype)initWithFirstName:(NSString *)_firstName
+                     andLastName:(NSString *)_lastName
+                         fromUrl:(NSURL *)url;
 
-
--(void)setImageFromUrl:(NSString *)_url;
 
 @end
 
