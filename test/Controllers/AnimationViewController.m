@@ -18,6 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *animationTypeSwitch;
 
+@property (nonatomic, assign) BOOL startPointAnimation;
+
 @end
 
 @implementation AnimationViewController
@@ -26,8 +28,9 @@
 {
     [super viewDidLoad];
     
-    [self setStartingPoint:CGRectMake(-200, -200, 200, 200)];
-    [self setLandingPoint:CGRectMake(100, 200, 200, 200)];
+    self.startPointAnimation = YES;
+    [self setStartingPoint:CGRectMake(20, 20, 50, 50)];
+    [self setLandingPoint:CGRectMake(200, 400, 50, 50)];
     
     self.animatedView = [[UIView alloc] init];
     [self.animatedView setFrame:self.startingPoint];
@@ -57,9 +60,16 @@
     }
     else // Not implemented yet : CAAnimation
     {
-        
+        CGRect rectToUse = self.startPointAnimation ? self.startingPoint : self.landingPoint;
+        CGPoint newPosition = CGPointMake(CGRectGetMidX(rectToUse), CGRectGetMidY(rectToUse));
+        CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+        basicAnimation.fromValue = [NSValue valueWithCGPoint:self.animatedView.layer.position];
+        basicAnimation.toValue = [NSValue valueWithCGPoint:newPosition];
+        basicAnimation.duration = 3.f;
+        self.animatedView.layer.position = newPosition;
+        [self.animatedView.layer addAnimation:basicAnimation forKey:@"Animated View Animation"];
     }
-    
+    self.startPointAnimation = !self.startPointAnimation;
 }
 
 
